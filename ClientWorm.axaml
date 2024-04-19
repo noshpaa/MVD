@@ -1,0 +1,76 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:scriptC="clr-namespace:AvaloniaApplication1.Script_C_"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="AvaloniaApplication1.ClientWorm"
+        Icon="/assets/favicon.ico"
+        Background="RoyalBlue"
+        Title="Клиенты">
+    <StackPanel Margin="30">
+        <Button Click="Button_OnClick">Back</Button>
+         <TextBlock>Выбирете вкладку</TextBlock>
+         <TabControl>
+          
+           <TabItem Header="Пациенты">
+               <StackPanel Name="StranicaMain">
+                   <StackPanel Name="GridPanel" Height="250" >
+                       <DataGrid  x:Name="Grid1"
+                                  Height="240"
+                                  IsReadOnly="True"
+                                  GridLinesVisibility="All"
+                                  BorderThickness="20"
+                                  BorderBrush="Gainsboro"
+                                  Margin="10,1"
+                                  x:DataType="scriptC:Scripts">
+                           <DataGrid.Columns>
+                               <DataGridTextColumn Header="Имя" Binding="{Binding name}"></DataGridTextColumn>
+                               <DataGridTextColumn Header="Возраст" Binding="{Binding age}"></DataGridTextColumn>
+                               <DataGridTextColumn Header="Пол" Binding="{Binding gender}"></DataGridTextColumn>
+                               <DataGridTextColumn Header="Занятость" Binding="{Binding occupation}"></DataGridTextColumn>
+                               <DataGridTextColumn Header="Адрес" Binding="{Binding address}"></DataGridTextColumn>
+                               <DataGridTextColumn Header="Контакт" Binding="{Binding contact_number}"></DataGridTextColumn>
+                               <DataGridTextColumn Header="Почта" Binding="{Binding email}"></DataGridTextColumn>
+                           </DataGrid.Columns>
+                       </DataGrid>
+                   </StackPanel>
+               </StackPanel>
+           </TabItem>
+           <TabItem Header="Темперамент">
+               <DataGrid  x:Name="Grid2" 
+                          IsReadOnly="True"
+                          GridLinesVisibility="All"
+                          BorderThickness="20"
+                          BorderBrush="Gainsboro"
+                          Margin="10,1"
+                          x:DataType="scriptC:products">
+                   <DataGrid.Columns>
+                       <DataGridTextColumn Header="ID" Binding="{Binding id1}"></DataGridTextColumn>
+                       <DataGridTextColumn Header="Продукт" Binding="{Binding product}"></DataGridTextColumn>
+                       <DataGridTextColumn Header="Категория" Binding="{Binding category1}"></DataGridTextColumn>
+                       <DataGridTextColumn Header="Пекарня" Binding="{Binding bakery1}"></DataGridTextColumn>
+                   </DataGrid.Columns>
+               </DataGrid>
+           </TabItem>
+          
+           <TabItem Header="Псих. Устойчивость">
+               <DataGrid  x:Name="Grid3" 
+                          IsReadOnly="True"
+                          GridLinesVisibility="All"
+                          BorderThickness="20"
+                          BorderBrush="Gainsboro"
+                          Margin="10,1"
+                          x:DataType="scriptC:receipe">
+                   <DataGrid.Columns>
+                       <DataGridTextColumn Header="ID" Binding="{Binding id2}"></DataGridTextColumn>
+                       <DataGridTextColumn Header="Наименование" Binding="{Binding receipe_name}"></DataGridTextColumn>
+                       <DataGridTextColumn Header="Инструкция" Binding="{Binding instructions}"></DataGridTextColumn>
+                       <DataGridTextColumn Header="Продукт" Binding="{Binding product_id}"></DataGridTextColumn>
+                   </DataGrid.Columns>
+               </DataGrid>
+           </TabItem>
+           
+         </TabControl>
+    </StackPanel>
+</Window>

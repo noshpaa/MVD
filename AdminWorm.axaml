@@ -1,0 +1,335 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:scriptC="clr-namespace:AvaloniaApplication1.Script_C_"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="AvaloniaApplication1.AdminWorm"
+        Icon="/assets/favicon.ico"
+        Background="RoyalBlue"
+        Title="Aдмин">
+     <StackPanel Margin="30">
+         <Button Click="Button_OnClick">Назад</Button>
+         <TabControl>
+             <TabItem Header="Пациенты">
+               <StackPanel Name="StranicaMain">
+                   <StackPanel Name="GridPanel" Height="250" >
+                       <DataGrid  x:Name="Grid1"
+                                  Height="240"
+                                  IsReadOnly="True"
+                                  GridLinesVisibility="All"
+                                  BorderThickness="20"
+                                  BorderBrush="Gainsboro"
+                                  Margin="10,1"
+                                  x:DataType="scriptC:Scripts">
+                               <DataGrid.Columns>
+                              <DataGridTextColumn Header="ID" Binding="{Binding id}"></DataGridTextColumn>
+                                   <DataGridTextColumn Header="Имя" Binding="{Binding name}"></DataGridTextColumn>
+                                   <DataGridTextColumn Header="Возраст" Binding="{Binding age}"></DataGridTextColumn>
+                                   <DataGridTextColumn Header="Пол" Binding="{Binding gender}"></DataGridTextColumn>
+                                   <DataGridTextColumn Header="Занятость" Binding="{Binding occupation}"></DataGridTextColumn>
+                                   <DataGridTextColumn Header="Адрес" Binding="{Binding address}"></DataGridTextColumn>
+                                   <DataGridTextColumn Header="Контакт" Binding="{Binding contact_number}"></DataGridTextColumn>
+                                   <DataGridTextColumn Header="Почта" Binding="{Binding email}"></DataGridTextColumn>
+                               </DataGrid.Columns>
+                           </DataGrid>
+                   </StackPanel>
+                   <StackPanel Name="PanelMain" Orientation="Vertical" Margin="10 10 10 10" Background="Gainsboro">
+                       <StackPanel Name="SearchPanel" Orientation="Horizontal">
+                       <TextBlock>Введите для поиска</TextBlock>
+                       <TextBox Name="Search" TextChanged="Search_OnTextChanged" Height="10" Width="200"></TextBox>
+                           <ComboBox Name="Box" x:CompileBindings="False" Width="200" Height="10" SelectionChanged="Box_OnSelectionChanged">
+                               <ComboBox.ItemTemplate>
+                                   <DataTemplate>
+                                       <TextBlock Text="{Binding name}"/>
+                                   </DataTemplate>
+                               </ComboBox.ItemTemplate>
+                           </ComboBox>
+                       </StackPanel>
+                           <StackPanel Name="TextBoxPanel" Background="Gainsboro" Orientation="Horizontal">
+                               <TextBox Name="ID_TextBox" Width="100" Height="10" Margin="1"/>
+                               <TextBox Name="t1" Width="100" Height="10" Margin="1"/>
+                               <TextBox Name="t2" Width="100" Height="10" TextWrapping="Wrap" Margin="1"/>
+                               <TextBox Name="t3" Height="10" Width="100" Margin="1"></TextBox>
+                               <TextBox Name="t4" Height="10" Width="100" Margin="1"></TextBox>
+                               <TextBox Name="t5" Height="10" Width="100" Margin="1"></TextBox>
+                               <TextBox Name="t6" Height="10" Width="100" Margin="1"></TextBox>
+                               <TextBox Name="t7" Height="10" Width="100" Margin="1"></TextBox>
+                           </StackPanel>
+                       <StackPanel Name="ButtonPanel" Background="Gainsboro" Orientation="Horizontal">
+                           
+                           <Button Height="30" Width="50" Background="SkyBlue" Content="Add" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="0 5 0 0" Click="AddOnClick"/>
+                           <Button Height="30" Width="50" Background="SkyBlue" Content="Save" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="0 5 0 0" Click="SaveOnClick"/>
+                           <Button Height="30" Width="60" Background="SkyBlue" Content="Delete" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="0 5 0 0" Click="DeleteOnClick"/>
+                           <Button Height="30" Width="70" Background="SkyBlue" Content="Update" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="0 5 0 0" Click="UpdateOnClick"/>
+                           <Button Height="30" Width="70" Background="SkyBlue" Content="Order" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="0 5 0 0" Click="OrderOnClick"/>
+                       </StackPanel>
+                   </StackPanel>
+               </StackPanel>
+           </TabItem>
+           <TabItem Header="Темперамент">
+               <StackPanel >
+                   <Border Background="LightSkyBlue" Height="500">
+                   <ScrollViewer>
+                   <StackPanel  Orientation="Vertical">
+                   <TextBlock>Для прохождения теста необходимо в прописывать текстовых полях "да" или "нет"</TextBlock>
+                       <TextBlock></TextBlock>
+                   <TextBlock>Я часто испытываю потребность в новых впечатлениях.</TextBlock>
+                   <TextBox Name="texts1" HorizontalAlignment="Left" Width="100"></TextBox>
+                   <TextBlock>Мне бывает трудно отказаться от своих планов.</TextBlock>
+                   <TextBox Name="texts2" HorizontalAlignment="Left" Width="100"></TextBox>
+                   <TextBlock>Обычно я действую и говорю быстро, долго не раздумывая.</TextBlock>
+                   <TextBox Name="texts3" HorizontalAlignment="Left" Width="100"></TextBox>
+                   <TextBlock>Иногда я чувствую себя несчастным без всякой причины.</TextBlock>
+                   <TextBox Name="texts4" HorizontalAlignment="Left" Width="100"></TextBox>
+                   <TextBlock>На спор я могу совершить необычный поступок.</TextBlock>
+                   <TextBox Name="texts5" HorizontalAlignment="Left" Width="100"></TextBox>
+                   <TextBlock>Иногда я нарушаю свои обещания.</TextBlock>
+                   <TextBox Name="texts6" HorizontalAlignment="Left" Width="100"></TextBox>
+                   <TextBlock>У меня часто меняется настроение.</TextBlock>
+                   <TextBox Name="texts7" HorizontalAlignment="Left" Width="100"></TextBox>
+                   <TextBlock>Мне нравятся азартные игры.</TextBlock>
+                   <TextBox Name="texts8" HorizontalAlignment="Left" Width="100"></TextBox>
+                   <TextBlock>У меня бывает учащенное сердцебиение.</TextBlock>
+                   <TextBox Name="texts9" HorizontalAlignment="Left" Width="100"></TextBox>
+                   <TextBlock>Я часто переживаю из-за того, что сказал или сделал что-то не так.</TextBlock>
+                   <TextBox Name="texts10" HorizontalAlignment="Left" Width="100"></TextBox>
+                   <TextBlock>Мне нравится работа, которая требует быстроты.</TextBlock>
+                   <TextBox Name="texts11" HorizontalAlignment="Left" Width="100"></TextBox>
+                   <TextBlock>Мне приходилось плохо отзываться о своих знакомых.</TextBlock>
+                   <TextBox Name="texts12" HorizontalAlignment="Left" Width="100"></TextBox>
+                   <TextBlock>Меня легко обидеть.</TextBlock>
+                   <TextBox Name="texts13" HorizontalAlignment="Left" Width="100"></TextBox>
+                   <TextBlock>Лучше иметь много приятелей, чем мало друзей.</TextBlock>
+                   <TextBox Name="texts14" HorizontalAlignment="Left" Width="100"></TextBox>
+                   <TextBlock>Временами меня переполняет энергия, а иногда всё валится из рук.</TextBlock>
+                   <TextBox Name="texts15" HorizontalAlignment="Left" Width="100"></TextBox>
+                   <TextBlock>Мне приятнее находиться в компании, чем быть одному.</TextBlock>
+                   <TextBox Name="texts16" HorizontalAlignment="Left" Width="100"></TextBox>
+                   <TextBlock>Я долго переживаю неудачу.</TextBlock>
+                   <TextBox Name="texts17" HorizontalAlignment="Left" Width="100"></TextBox>
+                   <TextBlock>У меня бывают мысли, которые хотелось бы скрыть от других.</TextBlock>
+                   <TextBox Name="texts18" HorizontalAlignment="Left" Width="100"></TextBox>
+                   <TextBlock>Я могу дать волю своим чувствам и от души повеселиться в компании.</TextBlock>
+                   <TextBox  Name="texts19" HorizontalAlignment="Left" Width="100"></TextBox>
+                       <TextBlock>Мои нервы часто натянуты до предела.</TextBlock>
+                       <TextBox  Name="texts20" HorizontalAlignment="Left" Width="100"></TextBox>
+                       <TextBlock>Думаю, что меня считают веселым человеком.</TextBlock>
+                       <TextBox  Name="texts21" HorizontalAlignment="Left" Width="100"></TextBox>
+                       <TextBlock>Я часто жалею о сказанных или несказанных вовремя словах.</TextBlock>
+                       <TextBox  Name="texts22" HorizontalAlignment="Left" Width="100"></TextBox>
+                       <TextBlock>На грубость я отвечаю грубостью.</TextBlock>
+                       <TextBox  Name="texts23" HorizontalAlignment="Left" Width="100"></TextBox>
+                       <TextBlock>Я могу опоздать.</TextBlock>
+                       <TextBox  Name="texts24" HorizontalAlignment="Left" Width="100"></TextBox>
+                       <TextBlock>Обычно мне легко и приятно в шумной компании.</TextBlock>
+                       <TextBox  Name="texts25" HorizontalAlignment="Left" Width="100"></TextBox>
+                       <TextBlock>Иногда мне мешают уснуть разные мысли.</TextBlock>
+                       <TextBox  Name="texts26" HorizontalAlignment="Left" Width="100"></TextBox>
+                       <TextBlock>Мне проще спросить о чем-то у других, чем прочитать самому.</TextBlock>
+                       <TextBox  Name="texts27" HorizontalAlignment="Left" Width="100"></TextBox>
+                       <TextBlock>Я часто испытываю чувство вины.</TextBlock>
+                       <TextBox  Name="texts28" HorizontalAlignment="Left" Width="100"></TextBox>
+                       <TextBlock>Мне нравится быть в центре внимания.</TextBlock>
+                       <TextBox  Name="texts29" HorizontalAlignment="Left" Width="100"></TextBox>
+                       <TextBlock>Иногда я говорю о вещах, в которых не разбираюсь.</TextBlock>
+                       <TextBox  Name="texts30" HorizontalAlignment="Left" Width="100"></TextBox>
+                       <TextBlock>Мне часто снятся кошмары.</TextBlock>
+                       <TextBox  Name="texts31" HorizontalAlignment="Left" Width="100"></TextBox>
+                       <TextBlock>Мне легко общаться с незнакомым человеком.</TextBlock>
+                       <TextBox  Name="texts32" HorizontalAlignment="Left" Width="100"></TextBox>
+                       <TextBlock>Иногда мне кажется, что я чем-то хуже других.</TextBlock>
+                       <TextBox  Name="texts33" HorizontalAlignment="Left" Width="100"></TextBox>
+                       <TextBlock>Думаю, что я – уверенный в себе человек.</TextBlock>
+                       <TextBox  Name="texts34" HorizontalAlignment="Left" Width="100"></TextBox>
+                       <TextBlock>Меня задевает критика.</TextBlock>
+                       <TextBox  Name="texts35" HorizontalAlignment="Left" Width="100"></TextBox>
+                       <TextBlock>У меня есть кое-какие вредные привычки.</TextBlock>
+                       <TextBox  Name="texts36" HorizontalAlignment="Left" Width="100"></TextBox>
+                       <TextBlock>Я могу внести оживление в скучную компанию.</TextBlock>
+                       <TextBox  Name="texts37" HorizontalAlignment="Left" Width="100"></TextBox>
+                       <TextBlock>Я беспокоюсь о своем здоровье.</TextBlock>
+                       <TextBox  Name="texts38" HorizontalAlignment="Left" Width="100"></TextBox>
+                       <TextBlock>Я люблю подшучивать над другими.</TextBlock>
+                       <TextBox  Name="texts39" HorizontalAlignment="Left" Width="100"></TextBox>
+                       <TextBlock>Мне трудно ответить «нет», когда меня о чем-то просят.</TextBlock>
+                       <TextBox  Name="texts40" HorizontalAlignment="Left" Width="100"></TextBox>
+                       <Button  Background="SkyBlue" Click="NewButtonClick">Получить результаты</Button>
+                       <TextBox Name="Result"></TextBox>
+                   </StackPanel>
+                </ScrollViewer>
+                   </Border>    
+               </StackPanel>
+               
+           </TabItem>
+          
+           <TabItem Header="Псих. устойчивость">
+               <StackPanel>
+                   <Border Background="LightSkyBlue" Height="500">
+                       <ScrollViewer>
+                           <StackPanel>
+                   <TextBlock>Иногда я смеюсь и плачу так, что не могу быстро остановиться.</TextBlock>
+                   <RadioButton Name="r1" GroupName="first">Да</RadioButton>
+                   <RadioButton Name="r2" GroupName="first">Нет</RadioButton> 
+                   <TextBlock>Бывают случаи, когда я намеренно лгу.</TextBlock>
+                               <RadioButton Name="r3" GroupName="asd">Да</RadioButton>
+                               <RadioButton Name="r4" GroupName="asd">Нет</RadioButton>
+                   <TextBlock>Меня не беспокоит мое будущее.</TextBlock>
+                               <RadioButton Name="r5" GroupName="sec">Да</RadioButton>
+                               <RadioButton Name="r6" GroupName="sec">Нет</RadioButton> 
+                   <TextBlock>Окружающие считают, что я могу завестись с пол-оборота.</TextBlock>
+                               <RadioButton Name="r7" GroupName="thr">Да</RadioButton>
+                               <RadioButton Name="r8" GroupName="thr">Нет</RadioButton>
+                   <TextBlock>Я редко провоцирую споры в своей семье.</TextBlock>
+                               <RadioButton Name="r9" GroupName="fou">Да</RadioButton>
+                               <RadioButton Name="r10" GroupName="fou">Нет</RadioButton>
+                   <TextBlock>Я совершенно не вижу просвета в своей жизни.</TextBlock>
+                               <RadioButton Name="r11" GroupName="five">Да</RadioButton>
+                               <RadioButton Name="r12" GroupName="five">Нет</RadioButton>
+                   <TextBlock>Регулярно у меня бывают ощущения, что «горит» кожа, хотя температуры нет.</TextBlock>
+                               <RadioButton Name="r13" GroupName="six">Да</RadioButton>
+                               <RadioButton Name="r14" GroupName="six">Нет</RadioButton>
+                   <TextBlock>Я не очень быстро реагирую и решаю оказывать помощь, когда у друзей или близких случается беда.</TextBlock>
+                               <RadioButton Name="r15" GroupName="sev">Да</RadioButton>
+                               <RadioButton Name="r16" GroupName="sev">Нет</RadioButton>
+                   <TextBlock>Я часто испытываю головные боли.</TextBlock>
+                               <RadioButton Name="r17" GroupName="eig">Да</RadioButton>
+                               <RadioButton Name="r18" GroupName="eig">Нет</RadioButton>
+                   <TextBlock>Иногда я чувствую нереальность происходящего.</TextBlock>
+                               <RadioButton Name="r19" GroupName="nine">Да</RadioButton>
+                               <RadioButton Name="r20" GroupName="nine">Нет</RadioButton>
+                   <TextBlock>Если я волнуюсь, то мои руки и голос могут дрожать, я говорю сбивчиво.</TextBlock>
+                               <RadioButton Name="r21" GroupName="first1">Да</RadioButton>
+                               <RadioButton Name="r22" GroupName="first1">Нет</RadioButton> 
+                   <TextBlock>В моем окружении не только те люди, к которым я испытываю симпатию.</TextBlock>
+                               <RadioButton Name="r23" GroupName="sec1">Да</RadioButton>
+                               <RadioButton Name="r24" GroupName="sec1">Нет</RadioButton>
+                   <TextBlock>Во сне я часто вижу такие необычные эпизоды, о которых я никому не решусь рассказать.</TextBlock>
+                               <RadioButton Name="r25" GroupName="thr1">Да</RadioButton>
+                               <RadioButton Name="r26" GroupName="thr1">Нет</RadioButton>
+                   <TextBlock>Бывало, что я говорил о вещах, в которых не разбираюсь.</TextBlock>
+                               <RadioButton Name="r27" GroupName="four1">Да</RadioButton>
+                               <RadioButton Name="r28" GroupName="four1">Нет</RadioButton>
+                   <TextBlock>Я часто испытываю сильную тревогу.</TextBlock>
+                               <RadioButton Name="r29" GroupName="five1">Да</RadioButton>
+                               <RadioButton Name="r30" GroupName="five1">Нет</RadioButton>
+                   <TextBlock>Когда у меня плохое настроение, люди меня раздражают.</TextBlock>
+                               <RadioButton Name="r31" GroupName="six1">Да</RadioButton>
+                               <RadioButton Name="r32" GroupName="six1">Нет</RadioButton> 
+                   <TextBlock>У меня есть ощущение, что мысли в моей голове не мои.</TextBlock>
+                               <RadioButton Name="r33" GroupName="sev1">Да</RadioButton>
+                               <RadioButton Name="r34" GroupName="sev1">Нет</RadioButton>
+                   <TextBlock>Сейчас у меня такой период, когда я не верю, что могу добиться успехов.</TextBlock>
+                               <RadioButton Name="r35" GroupName="eight1">Да</RadioButton>
+                               <RadioButton Name="r36" GroupName="eight1">Нет</RadioButton>
+                   <TextBlock>У меня такое ощущение, что я отстаю в развитии от своих сверстников.</TextBlock>
+                               <RadioButton Name="r37" GroupName="nine1">Да</RadioButton>
+                               <RadioButton Name="r38" GroupName="nine1">Нет</RadioButton>
+                   <TextBlock>Я водохлеб.</TextBlock>
+                               <RadioButton Name="r39" GroupName="first2">Да</RadioButton>
+                               <RadioButton Name="r40" GroupName="first2">Нет</RadioButton>
+                   <TextBlock>В одиночестве я чувствую себя гораздо лучше, чем в обществе других людей.</TextBlock>
+                               <RadioButton Name="r41" GroupName="sec2">Да</RadioButton>
+                               <RadioButton Name="r42" GroupName="sec2">Нет</RadioButton>
+                               <TextBlock>Я не всегда исполняю обещанное.</TextBlock>
+                               <RadioButton Name="r43" GroupName="thr2">Да</RadioButton>
+                               <RadioButton Name="r44" GroupName="thr2">Нет</RadioButton>
+                               <TextBlock>Иногда я слышу голоса в голове.</TextBlock>
+                               <RadioButton Name="r45" GroupName="four2">Да</RadioButton>
+                               <RadioButton Name="r46" GroupName="four2">Нет</RadioButton> 
+                               <TextBlock>Чувство одиночества не покидает меня и в обществе.</TextBlock>
+                               <RadioButton Name="r47" GroupName="five2">Да</RadioButton>
+                               <RadioButton Name="r48" GroupName="five2">Нет</RadioButton>
+                               <TextBlock>Терпеть не могу спешку, я становлюсь агрессивным.</TextBlock>
+                               <RadioButton Name="r49" GroupName="six2">Да</RadioButton>
+                               <RadioButton Name="r50" GroupName="six2">Нет</RadioButton> 
+                               <TextBlock>Меня иногда посещают чудовищные мысли, которые я никогда не произнесу вслух.</TextBlock>
+                               <RadioButton Name="r51" GroupName="sev2">Да</RadioButton>
+                               <RadioButton Name="r52" GroupName="sev2">Нет</RadioButton> 
+                               <TextBlock>Меня легко сбить с толку.</TextBlock>
+                               <RadioButton Name="r53" GroupName="eight2">Да</RadioButton>
+                               <RadioButton Name="r54" GroupName="eight2">Нет</RadioButton> 
+                               <TextBlock>Я не отличаюсь терпением по отношению к другим людям.</TextBlock>
+                               <RadioButton Name="r55" GroupName="nine2">Да</RadioButton>
+                               <RadioButton Name="r56" GroupName="nine2">Нет</RadioButton> 
+                               <TextBlock>Мне трудно себя заставить встать с постели вовремя.</TextBlock>
+                               <RadioButton Name="r57" GroupName="first3">Да</RadioButton>
+                               <RadioButton Name="r58" GroupName="first3">Нет</RadioButton> 
+                               <TextBlock>Часто я испытываю сухость во рту.</TextBlock>
+                               <RadioButton Name="r59" GroupName="sec3">Да</RadioButton>
+                               <RadioButton Name="r60" GroupName="sec3">Нет</RadioButton>
+                               <TextBlock>Часто я представляю себя умершим.</TextBlock>
+                               <RadioButton Name="r61" GroupName="thr3">Да</RadioButton>
+                               <RadioButton Name="r62" GroupName="thr3">Нет</RadioButton> 
+                               <TextBlock>Если при выполнении какого-либо дела возникают трудности, я могу его бросить.</TextBlock>
+                               <RadioButton Name="r63" GroupName="four3">Да</RadioButton>
+                               <RadioButton Name="r64" GroupName="four3">Нет</RadioButton>
+                               <TextBlock>Когда я волнуюсь, то часто не могу заснуть.</TextBlock>
+                               <RadioButton Name="r65" GroupName="five3">Да</RadioButton>
+                               <RadioButton Name="r66" GroupName="five3">Нет</RadioButton> 
+                               <TextBlock>Я испытываю чувство вины за некоторые поступки и считаю, что заслуживаю наказания.</TextBlock>
+                               <RadioButton Name="r67" GroupName="six3">Да</RadioButton>
+                               <RadioButton Name="r68" GroupName="six3">Нет</RadioButton> 
+                               <TextBlock>Однажды, я ощущал необычные переживания, связанные с мистикой.</TextBlock>
+                               <RadioButton Name="r69" GroupName="sev3">Да</RadioButton>
+                               <RadioButton Name="r70" GroupName="sev3">Нет</RadioButton> 
+                               <TextBlock>Я часто нервничаю.</TextBlock>
+                               <RadioButton Name="r71" GroupName="eight3">Да</RadioButton>
+                               <RadioButton Name="r72" GroupName="eight3">Нет</RadioButton>
+                               <TextBlock>Меня иногда обижают ни за что.</TextBlock>
+                               <RadioButton Name="r73" GroupName="nine3">Да</RadioButton>
+                               <RadioButton Name="r74" GroupName="nine3">Нет</RadioButton>
+                               <TextBlock>Я все делаю не так, как надо и считаю себя неудачником.</TextBlock>
+                               <RadioButton Name="r75" GroupName="first4">Да</RadioButton>
+                               <RadioButton Name="r76" GroupName="first4">Нет</RadioButton>
+                               <TextBlock>Я все время чувствую усталость.</TextBlock>
+                               <RadioButton Name="r77" GroupName="sec4">Да</RadioButton>
+                               <RadioButton Name="r78" GroupName="sec4">Нет</RadioButton> 
+                               <TextBlock>Иногда я испытываю такое напряжение, что кажется, мои нервы не выдержат.</TextBlock>
+                               <RadioButton Name="r79" GroupName="thr4">Да</RadioButton>
+                               <RadioButton Name="r80" GroupName="thr4">Нет</RadioButton>
+                               <TextBlock>Иногда я забываю что и куда положил и меня это бесит..</TextBlock>
+                               <RadioButton Name="r81" GroupName="four4">Да</RadioButton>
+                               <RadioButton Name="r82" GroupName="four4">Нет</RadioButton>
+                               <TextBlock>Иногда я принимаю лекарства от стресса или бессонницы.</TextBlock>
+                               <RadioButton Name="r83" GroupName="five4">Да</RadioButton>
+                               <RadioButton Name="r84" GroupName="five4">Нет</RadioButton>
+                               <TextBlock>Я часто испытываю страх.</TextBlock>
+                               <RadioButton Name="r85" GroupName="six4">Да</RadioButton>
+                               <RadioButton Name="r86" GroupName="six4">Нет</RadioButton>
+                               <TextBlock>Я очень трудно переношу любые перемены.</TextBlock>
+                               <RadioButton Name="r87" GroupName="sev4">Да</RadioButton>
+                               <RadioButton Name="r88" GroupName="sev4">Нет</RadioButton> 
+                               <TextBlock>Мир и люди несправедливы ко мне.</TextBlock>
+                               <RadioButton Name="r89" GroupName="eight4">Да</RadioButton>
+                               <RadioButton Name="r90" GroupName="eight4">Нет</RadioButton> 
+                               <TextBlock>Мое мнение в большинстве случаев отличается от мнения окружающих.</TextBlock>
+                               <RadioButton Name="r91" GroupName="nine4">Да</RadioButton>
+                               <RadioButton Name="r92" GroupName="nine4">Нет</RadioButton> 
+                               <TextBlock>Я могу отомстить виновнику за свою неудачу.</TextBlock>
+                               <RadioButton Name="r93" GroupName="first5">Да</RadioButton>
+                               <RadioButton Name="r94" GroupName="first5">Нет</RadioButton> 
+                               <TextBlock>Иногда я чувствую себя уставшим от жизни.</TextBlock>
+                               <RadioButton Name="r95" GroupName="sec5">Да</RadioButton>
+                               <RadioButton Name="r96" GroupName="sec5">Нет</RadioButton>
+                               <TextBlock>Иногда мне кажется, что все внимание окружающих направлено на меня.</TextBlock>
+                               <RadioButton Name="r97" GroupName="thr5">Да</RadioButton>
+                               <RadioButton Name="r98" GroupName="thr5">Нет</RadioButton> 
+                               <TextBlock>У меня бывают переживания, от которых голова может болеть или даже может случиться головокружение.</TextBlock>
+                               <RadioButton Name="r99" GroupName="four5">Да</RadioButton>
+                               <RadioButton Name="r100" GroupName="four5">Нет</RadioButton>
+                               <TextBlock>Часто бывает такое, когда я абсолютно никого не хочу видеть.</TextBlock>
+                               <RadioButton Name="r101" GroupName="five5">Да</RadioButton>
+                               <RadioButton Name="r102" GroupName="five5">Нет</RadioButton> 
+                               <Button  Background="SkyBlue" Click="Check_OnClick" >Получить результаты</Button>
+                               <TextBox Name="ResultPs"></TextBox>
+                               </StackPanel>
+                       </ScrollViewer>
+                   </Border>
+               </StackPanel>
+               
+           </TabItem>
+           
+         </TabControl>
+    </StackPanel>
+</Window>
